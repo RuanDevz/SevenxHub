@@ -70,9 +70,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ fileCode }) => {
     );
   }
 
-  // Determine the embed URL based on whether it's a mock video or real
-  const embedUrl = video.file_code.startsWith('sample') 
-    ? `https://www.youtube.com/embed/dQw4w9WgXcQ` // Fallback embed for mock videos
+  // Define a URL de embed: se for um vídeo de mock (começa com 'sample') usa um fallback; caso contrário, usa o embed da Doodstream.
+  const embedUrl = video.file_code.startsWith('sample')
+    ? `https://www.youtube.com/embed/dQw4w9WgXcQ`
     : `https://dood.wf/e/${fileCode}`;
 
   return (

@@ -21,10 +21,10 @@ const HomePage: React.FC<HomePageProps> = ({ searchQuery }) => {
         
         if (searchQuery) {
           results = await searchVideos(searchQuery);
-          setHasMore(false); // No pagination for search results with the current API
+          setHasMore(false); // Sem paginação para buscas
         } else {
           results = await fetchVideos(page);
-          setHasMore(results.length === 20); // Assuming 20 is the per_page value
+          setHasMore(results.length === 20); // Considerando 20 vídeos por página
         }
         
         if (page === 1) {
@@ -42,7 +42,7 @@ const HomePage: React.FC<HomePageProps> = ({ searchQuery }) => {
     loadVideos();
   }, [searchQuery, page]);
 
-  // Reset to page 1 when search query changes
+  // Reseta para a página 1 quando a busca mudar
   useEffect(() => {
     setPage(1);
   }, [searchQuery]);
